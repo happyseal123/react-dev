@@ -1,0 +1,66 @@
+[
+    {
+        "name": "Goat Cheese Omelet",
+        "mealtype": "Breakfast",
+        "difficulty": "Beginner",
+        "preptime": 10,
+        "image": "images/omelet.jpg"
+    },
+    {
+        "name": "Almond Croissant",
+        "mealtype": "Breakfast",
+        "difficulty": "Advanced",
+        "preptime": 45,
+        "image": "images/croissant.jpg"
+    },
+    {
+        "name": "Blueberry Pancakes",
+        "mealtype": "Breakfast",
+        "difficulty": "Beginner",
+        "preptime": 30,
+        "image": "images/pancakes.jpg"
+    },
+    {
+        "name": "Chicken Noodle Soup",
+        "mealtype": "Lunch",
+        "difficulty": "Beginner",
+        "preptime": 60,
+        "image": "images/chicken-noodle.jpg"
+    },
+    {
+        "name": "Crispy Chicken Sandwich",
+        "mealtype": "Lunch",
+        "Difficulty": "Advanced",
+        "preptime": 45,
+        "image": "images/crispy-chicken.jpg"
+    },
+    {
+        "name": "Chef Salad",
+        "mealtype": "Lunch",
+        "difficulty": "Beginner",
+        "preptime": 20,
+        "image": "images/salad.jpg"
+    },
+    {
+        "name": "Classic Roast Chicken",
+        "mealtype": "Dinner",
+        "difficulty": "Beginner",
+        "preptime": 60,
+        "image": "images/roast-chicken.jpg"
+    },
+    {
+        "name": "Spicy Rigatoni",
+        "mealtype": "Dinner",
+        "Difficulty": "Beginner",
+        "preptime": 40,
+        "image": "images/rigatoni.jpg"
+    },
+    {
+        "name": "Tonkotsu Ramen",
+        "mealtype": "Dinner",
+        "difficulty": "Advanced",
+        "preptime": 120,
+        "image": "images/ramen.jpg"
+    }
+  ]
+  
