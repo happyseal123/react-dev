@@ -29,6 +29,29 @@ function App() {
 
   const [recipeDataState, setRecipeDataState] = useState(recipeData);
 
+
+
+
+  const [filters, setFilters] = useState(["all", "all"]);
+
+  const matchesFilterType = item => {
+
+    if (filters[0] == "all" && filters[1] == "all") {
+      return true;
+    } else if (filters[0] == "all" && item.mealtype == filters[0]) {
+      return true;
+    } else if (filters[1] == "all" && item.mealtype == filters[0]) {
+      return true;
+    } else if (item.difficulty == filters[1] && item.mealtype == filters[0]) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+
+
+
   const [mealOpac, setMealOpac] = useState(1);
   const [mealColors, setMealColors] = useState(["black", "black", "black"]);
 
@@ -73,9 +96,14 @@ function App() {
     <div>
     <h4>Meal Type:</h4>
     <button style={{ opacity : mealOpac , color: mealColors[0] }} onClick={() => {
-      setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
-      setMealOpac(0.6);
-      setMealColors(["red", "black", "black"]);
+      // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
+      // setMealOpac(0.6);
+      // setMealColors(["red", "black", "black"]);
+
+
+      setFilters(["Breakfast", filters[1]]);
+
+
     }}>Breakfast</button>
 
     <button style={{opacity:mealOpac , color:mealColors[1]}} onClick = {() => {
@@ -120,12 +148,21 @@ function App() {
           ))}
         </div> */}
 
+      {/* <div id="recipes">
+        <h2>Recipes:</h2>
+
+          {recipeDataState.map((item) => (
+            <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
+          ))}
+
+        </div> */}
+
    
 
         <div id="recipes">
         <h2>Recipes:</h2>
 
-          {recipeDataState.map((item) => (
+          {recipeDataState.filter(matchesFilterType).map((item) => (
             <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
 
