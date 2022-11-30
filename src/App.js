@@ -19,6 +19,11 @@ function App() {
     setCookTime(cookTime+time);
   }
 
+  const removeRecipe = (recipeName, time) => {
+    setSaved(saved.filter(item => item != recipeName));
+    setCookTime(cookTime-time);
+  }
+
   return (
     <div className="App">
       <h1>Website Name</h1>
@@ -27,7 +32,7 @@ function App() {
         <div id="recipes">
           <h2>Recipes:</h2>
           {recipeData.map((item) => (
-            <RecipeItem prop1={item} addClick={saveRecipe}/>
+            <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
         </div>
         <div>

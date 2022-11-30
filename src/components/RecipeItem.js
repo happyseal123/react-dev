@@ -1,6 +1,22 @@
 import { useState } from 'react';
+import './RecipeItem.css';
 
-export default function RecipeItem({prop1, addClick}) {
+// const [saved, setSaved] = useState([]);
+//   const [cookTime, setCookTime] = useState(0);
+
+
+//   const saveRecipe = (recipeName, time) => {
+//     setSaved([...saved, recipeName]);
+//     setCookTime(cookTime+time);
+//   }
+
+
+
+export default function RecipeItem({prop1, addClick, removeClick}) {
+
+    const [addVis, setAddVis] = useState("inline");
+    const [removeVis, setRemoveVis] = useState("none");
+
     
     return (
         <div>
@@ -9,7 +25,23 @@ export default function RecipeItem({prop1, addClick}) {
             <h3>{prop1.mealtype}</h3>
             <h3>{prop1.difficulty}</h3>
             <h3>{prop1.preptime} Minutes</h3>
-            <button onClick={() => addClick(prop1.name, prop1.preptime)}>Save Recipe</button>
+
+            <button style={{display:addVis}} onClick={() => {
+                addClick(prop1.name, prop1.preptime);
+                setAddVis("none");
+                setRemoveVis("inline");
+            }
+
+                }>Save Recipe
+            </button>
+
+            <button style={{display:removeVis}} onClick={() => {
+                removeClick(prop1.name, prop1.preptime);
+                setAddVis("inline");
+                setRemoveVis("none");
+
+            }
+            }>Unsave Recipe</button>
         </div>
     )
 }
