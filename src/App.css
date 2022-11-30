@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+#reset{
+  margin-left: 1rem;
+}
+
 #body{
   display: flex;
   flex-direction: row;

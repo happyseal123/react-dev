@@ -1,17 +1,17 @@
 [
     {
-        "name": "Goat Cheese Omelet",
-        "mealtype": "Breakfast",
-        "difficulty": "Beginner",
-        "preptime": 10,
-        "image": "images/omelet.jpg"
-    },
-    {
         "name": "Almond Croissant",
         "mealtype": "Breakfast",
         "difficulty": "Advanced",
         "preptime": 45,
         "image": "images/croissant.jpg"
+    },
+    {
+        "name": "Goat Cheese Omelet",
+        "mealtype": "Breakfast",
+        "difficulty": "Beginner",
+        "preptime": 10,
+        "image": "images/omelet.jpg"
     },
     {
         "name": "Blueberry Pancakes",
