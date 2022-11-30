@@ -197,7 +197,7 @@ function App() {
         <h2>Recipes:</h2>
 
           {recipeDataState.sort(sortingRecipes).filter(matchesFilterType).map((item) => (
-            <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
+            <RecipeItem savedItems={saved} prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
 
         </div>
