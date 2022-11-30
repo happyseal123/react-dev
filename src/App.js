@@ -29,7 +29,22 @@ function App() {
 
   const [recipeDataState, setRecipeDataState] = useState(recipeData);
 
+  const [sortOn, setSortOn] = useState(false);
 
+  const sortingRecipes = (a,b) => {
+    if (sortOn == false) {
+      return 0;
+    }
+    if (sortOn == true) {
+      if (a.preptime > b.preptime) {
+        return 1;
+      }
+      if (a.preptime < b.preptime) {
+        return -1;
+      }
+      return 0;
+    }
+  }
 
 
   const [filters, setFilters] = useState(["all", "all"]);
@@ -64,21 +79,28 @@ function App() {
 
       <button onClick={() => {
 
-        const sortedRecipes = (recipeDataState.sort((a,b) => {
-          if (a.preptime > b.preptime) {
-            return 1;
-          }
-          if (a.preptime < b.preptime) {
-            return -1;
-          }
-          return 0;
-        }
-      ))
+        setSortOn(true);
+
+        // const sortedRecipes = recipeDataState.sort(sortingRecipes);
+
+        // setRecipeDataState(sortedRecipes);
+
+      //   const sortedRecipes = (recipeDataState.sort((a,b) => {
+      //     if (a.preptime > b.preptime) {
+      //       return 1;
+      //     }
+      //     if (a.preptime < b.preptime) {
+      //       return -1;
+      //     }
+      //     return 0;
+      //   }
+      // ))
         
-        setRecipeDataState(sortedRecipes);
+      //   setRecipeDataState(sortedRecipes);
+
             }
 
-            
+
         }>Sort By Ascending Prep Time
       </button>
 
@@ -89,6 +111,7 @@ function App() {
         setDiffColors(["black", "black"]);
         // setRecipeDataState(recipeData);
         setFilters(["all", "all"]);
+        setSortOn(false);
       }}>
         Reset Sorting & All Filters
       </button>
@@ -173,15 +196,18 @@ function App() {
         <div id="recipes">
         <h2>Recipes:</h2>
 
-          {recipeDataState.filter(matchesFilterType).map((item) => (
+          {recipeDataState.sort(sortingRecipes).filter(matchesFilterType).map((item) => (
             <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
 
         </div>
 
-        {/* {Aggregator(saved, cookTime)} */}
+        <Aggregator
+        savedRecipes={saved}
+        totalCookTime={cookTime}
+        />
 
-        <div>
+        {/* <div>
           <h2>Recipe Box:</h2>
 
 
@@ -193,7 +219,8 @@ function App() {
 
           <h3>Total cook time:</h3>
           <p> {cookTime} minutes</p>
-        </div>
+        </div> */}
+
       </div>
 
 

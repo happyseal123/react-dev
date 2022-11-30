@@ -1,4 +1,7 @@
 export default function Aggregator({savedRecipes, totalCookTime}) {
+  // export default function Aggregator(props) {
+    // props.cookTime
+    
 
     return (
         
