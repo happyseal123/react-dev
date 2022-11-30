@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from "react";
 import recipeData from "./assets/recipe-data.json";
 import RecipeItem from "./components/RecipeItem";
+import Aggregator from './components/Aggregator';
 
 
 
@@ -28,8 +29,11 @@ function App() {
 
   const [recipeDataState, setRecipeDataState] = useState(recipeData);
 
-  const [opac, setOpac] = useState(1);
+  const [mealOpac, setMealOpac] = useState(1);
   const [mealColors, setMealColors] = useState(["black", "black", "black"]);
+
+  const [diffOpac, setDiffOpac] = useState(1);
+  const [diffColors, setDiffColors] = useState(["black", "black"]);
 
   return (
     <div className="App">
@@ -55,8 +59,10 @@ function App() {
       </button>
 
       <button id="reset" onClick={() => {
-        setOpac(1);
+        setMealOpac(1);
+        setDiffOpac(1);
         setMealColors(["black", "black", "black"]);
+        setDiffColors(["black", "black"]);
         setRecipeDataState(recipeData);
       }}>
         Reset Sorting & All Filters
@@ -66,21 +72,42 @@ function App() {
 
     <div>
     <h4>Meal Type:</h4>
-    <button style={{ opacity : opac , color: mealColors[0] }} onClick={() => {
+    <button style={{ opacity : mealOpac , color: mealColors[0] }} onClick={() => {
       setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
-      setOpac(0.6);
+      setMealOpac(0.6);
       setMealColors(["red", "black", "black"]);
     }}>Breakfast</button>
-    <button style={{opacity:opac}}>Lunch</button>
-    <button style={{opacity:opac}}>Dinner</button>
+
+    <button style={{opacity:mealOpac , color:mealColors[1]}} onClick = {() => {
+      setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Lunch"));
+      setMealOpac(0.6);
+      setMealColors(["black", "red", "black"]);
+    }}>Lunch</button>
+
+    <button style={{opacity:mealOpac, color:mealColors[2]}} onClick = {() => {
+      setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Dinner"));
+      setMealOpac(0.6);
+      setMealColors(["black", "black", "red"]);
+    }}>Dinner</button>
     </div>
 
     <div>
     <h4>Difficulty Level</h4>
-    <button onClick={() => {
+
+    {/* const [diffOpac, setDiffOpac] = useState(1);
+  const [diffColors, setDiffColors] = useState(["black", "black"]); */}
+
+    <button style={{opacity:diffOpac, color:diffColors[0]}} onClick={() => {
       setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Beginner"));
+      setDiffOpac(0.6);
+      setDiffColors(["red", "black"]);
     }}>Beginner</button>
-    <button>Advanced</button>
+
+    <button style={{opacity:diffOpac, color:diffColors[1]}} onClick={() => {
+      setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Advanced"));
+      setDiffOpac(0.6);
+      setDiffColors(["black", "red"]);
+    }}>Advanced</button>
     </div>
     
       
@@ -93,14 +120,18 @@ function App() {
           ))}
         </div> */}
 
+   
+
         <div id="recipes">
-          <h2>Recipes:</h2>
+        <h2>Recipes:</h2>
 
           {recipeDataState.map((item) => (
             <RecipeItem prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
 
         </div>
+
+        {/* {Aggregator(saved, cookTime)} */}
 
         <div>
           <h2>Recipe Box:</h2>

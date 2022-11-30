@@ -30,7 +30,7 @@
     {
         "name": "Crispy Chicken Sandwich",
         "mealtype": "Lunch",
-        "Difficulty": "Advanced",
+        "difficulty": "Advanced",
         "preptime": 45,
         "image": "images/crispy-chicken.jpg"
     },
@@ -51,7 +51,7 @@
     {
         "name": "Spicy Rigatoni",
         "mealtype": "Dinner",
-        "Difficulty": "Beginner",
+        "difficulty": "Beginner",
         "preptime": 40,
         "image": "images/rigatoni.jpg"
     },
