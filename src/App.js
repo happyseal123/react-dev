@@ -38,9 +38,9 @@ function App() {
 
     if (filters[0] == "all" && filters[1] == "all") {
       return true;
-    } else if (filters[0] == "all" && item.mealtype == filters[0]) {
-      return true;
     } else if (filters[1] == "all" && item.mealtype == filters[0]) {
+      return true;
+    } else if (filters[0] == "all" && item.difficulty == filters[1]) {
       return true;
     } else if (item.difficulty == filters[1] && item.mealtype == filters[0]) {
       return true;
@@ -64,21 +64,22 @@ function App() {
 
       <button onClick={() => {
 
-        // BELOW IS BUGGY, IDK WHY
+        const sortedRecipes = (recipeDataState.sort((a,b) => {
+          if (a.preptime > b.preptime) {
+            return 1;
+          }
+          if (a.preptime < b.preptime) {
+            return -1;
+          }
+          return 0;
+        }
+      ))
         
-        // setRecipeDataState(
-        //   recipeDataState.sort((a,b) => {
-        //     if (a.preptime > b.preptime) {
-        //       return 1;
-        //     }
-        //     if (a.preptime < b.preptime) {
-        //       return -1;
-        //     }
-        //     return 0;
-        //   }
-        // ));
+        setRecipeDataState(sortedRecipes);
             }
-                }>Sort By Ascending Prep Time
+
+            
+        }>Sort By Ascending Prep Time
       </button>
 
       <button id="reset" onClick={() => {
@@ -86,7 +87,8 @@ function App() {
         setDiffOpac(1);
         setMealColors(["black", "black", "black"]);
         setDiffColors(["black", "black"]);
-        setRecipeDataState(recipeData);
+        // setRecipeDataState(recipeData);
+        setFilters(["all", "all"]);
       }}>
         Reset Sorting & All Filters
       </button>
@@ -98,7 +100,7 @@ function App() {
     <button style={{ opacity : mealOpac , color: mealColors[0] }} onClick={() => {
       // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
       // setMealOpac(0.6);
-      // setMealColors(["red", "black", "black"]);
+      setMealColors(["red", "black", "black"]);
 
 
       setFilters(["Breakfast", filters[1]]);
@@ -107,15 +109,20 @@ function App() {
     }}>Breakfast</button>
 
     <button style={{opacity:mealOpac , color:mealColors[1]}} onClick = {() => {
-      setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Lunch"));
-      setMealOpac(0.6);
+      // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Lunch"));
+      // setMealOpac(0.6);
       setMealColors(["black", "red", "black"]);
+
+      setFilters(["Lunch", filters[1]]);
+
     }}>Lunch</button>
 
     <button style={{opacity:mealOpac, color:mealColors[2]}} onClick = {() => {
-      setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Dinner"));
-      setMealOpac(0.6);
+      // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Dinner"));
+      // setMealOpac(0.6);
       setMealColors(["black", "black", "red"]);
+
+      setFilters(["Dinner", filters[1]]);
     }}>Dinner</button>
     </div>
 
@@ -126,15 +133,19 @@ function App() {
   const [diffColors, setDiffColors] = useState(["black", "black"]); */}
 
     <button style={{opacity:diffOpac, color:diffColors[0]}} onClick={() => {
-      setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Beginner"));
-      setDiffOpac(0.6);
+      // setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Beginner"));
+      // setDiffOpac(0.6);
       setDiffColors(["red", "black"]);
+
+      setFilters([filters[0], "Beginner"]);
     }}>Beginner</button>
 
     <button style={{opacity:diffOpac, color:diffColors[1]}} onClick={() => {
-      setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Advanced"));
-      setDiffOpac(0.6);
+      // setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Advanced"));
+      // setDiffOpac(0.6);
       setDiffColors(["black", "red"]);
+
+      setFilters([filters[0], "Advanced"]);
     }}>Advanced</button>
     </div>
     
