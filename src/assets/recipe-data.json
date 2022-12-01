@@ -21,6 +21,13 @@
         "image": "images/pancakes.jpg"
     },
     {
+        "name": "Eggs Benedict",
+        "mealtype": "Breakfast",
+        "difficulty": "Advanced",
+        "preptime": 25,
+        "image": "images/eggs-benedict.jpg"
+    },
+    {
         "name": "Chicken Noodle Soup",
         "mealtype": "Lunch",
         "difficulty": "Beginner",
@@ -42,6 +49,13 @@
         "image": "images/salad.jpg"
     },
     {
+        "name": "Truffle Grilled Cheese",
+        "mealtype": "Lunch",
+        "difficulty": "Advanced",
+        "preptime": 30,
+        "image": "images/grilled-cheese.jpg"
+    },
+    {
         "name": "Classic Roast Chicken",
         "mealtype": "Dinner",
         "difficulty": "Beginner",
@@ -61,6 +75,13 @@
         "difficulty": "Advanced",
         "preptime": 120,
         "image": "images/ramen.jpg"
+    },
+    {
+        "name": "Grilled Salmon",
+        "mealtype": "Dinner",
+        "difficulty": "Advanced",
+        "preptime": 50,
+        "image": "images/grilled-salmon.jpg"
     }
   ]
   

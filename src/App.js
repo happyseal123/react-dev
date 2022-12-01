@@ -113,13 +113,13 @@ function App() {
         setFilters(["all", "all"]);
         setSortOn(false);
       }}>
-        Reset Sorting & All Filters
+        Reset All Filters
       </button>
 
       {/* {recipeData[0].name} */}
 
     <div>
-    <h4>Meal Type:</h4>
+    <h4>Filter By Meal Type:</h4>
     <button style={{ opacity : mealOpac , color: mealColors[0] }} onClick={() => {
       // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
       // setMealOpac(0.6);
@@ -150,7 +150,7 @@ function App() {
     </div>
 
     <div>
-    <h4>Difficulty Level</h4>
+    <h4>Filter by Difficulty Level:</h4>
 
     {/* const [diffOpac, setDiffOpac] = useState(1);
   const [diffColors, setDiffColors] = useState(["black", "black"]); */}
