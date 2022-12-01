@@ -21,21 +21,21 @@ export default function RecipeItem({savedItems, prop1, addClick, removeClick}) {
     }
 
     return (
-        <div>
+        <div id="card">
             <img src={prop1.image}/>
             <h2> {prop1.name}</h2>
             <h3>Meal Type: {prop1.mealtype}</h3>
             <h3>Difficulty Level: {prop1.difficulty}</h3>
             <h3>Prep Time: {prop1.preptime} Minutes</h3>
 
-            <button style={{display:buttonShowing()[0]}} onClick={() => {
+            <button style={{color:"green", display:buttonShowing()[0]}} onClick={() => {
                 addClick(prop1.name, prop1.preptime);
             }
 
                 }>Save Recipe
             </button>
 
-            <button style={{display:buttonShowing()[1]}} onClick={() => {
+            <button style={{color:"red", display:buttonShowing()[1]}} onClick={() => {
                 removeClick(prop1.name, prop1.preptime);
             }
             }>Unsave Recipe</button>

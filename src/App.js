@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Website Name</h1>
+      <h1>Happy Chef's Kitchen</h1>
 
       <button onClick={() => {
 
@@ -123,7 +123,7 @@ function App() {
     <button style={{ opacity : mealOpac , color: mealColors[0] }} onClick={() => {
       // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Breakfast"));
       // setMealOpac(0.6);
-      setMealColors(["red", "black", "black"]);
+      setMealColors(["blue", "black", "black"]);
 
 
       setFilters(["Breakfast", filters[1]]);
@@ -134,7 +134,7 @@ function App() {
     <button style={{opacity:mealOpac , color:mealColors[1]}} onClick = {() => {
       // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Lunch"));
       // setMealOpac(0.6);
-      setMealColors(["black", "red", "black"]);
+      setMealColors(["black", "blue", "black"]);
 
       setFilters(["Lunch", filters[1]]);
 
@@ -143,7 +143,7 @@ function App() {
     <button style={{opacity:mealOpac, color:mealColors[2]}} onClick = {() => {
       // setRecipeDataState(recipeDataState.filter(item => item.mealtype == "Dinner"));
       // setMealOpac(0.6);
-      setMealColors(["black", "black", "red"]);
+      setMealColors(["black", "black", "blue"]);
 
       setFilters(["Dinner", filters[1]]);
     }}>Dinner</button>
@@ -158,7 +158,7 @@ function App() {
     <button style={{opacity:diffOpac, color:diffColors[0]}} onClick={() => {
       // setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Beginner"));
       // setDiffOpac(0.6);
-      setDiffColors(["red", "black"]);
+      setDiffColors(["blue", "black"]);
 
       setFilters([filters[0], "Beginner"]);
     }}>Beginner</button>
@@ -166,7 +166,7 @@ function App() {
     <button style={{opacity:diffOpac, color:diffColors[1]}} onClick={() => {
       // setRecipeDataState(recipeDataState.filter(item => item.difficulty == "Advanced"));
       // setDiffOpac(0.6);
-      setDiffColors(["black", "red"]);
+      setDiffColors(["black", "blue"]);
 
       setFilters([filters[0], "Advanced"]);
     }}>Advanced</button>
@@ -194,18 +194,24 @@ function App() {
    
 
         <div id="recipes">
-        <h2>Recipes:</h2>
-
+          <div>
+            <h2>Recipes:</h2>
+          </div>
+        
+          <div id="recipes-grid">
           {recipeDataState.sort(sortingRecipes).filter(matchesFilterType).map((item) => (
             <RecipeItem savedItems={saved} prop1={item} addClick={saveRecipe} removeClick={removeRecipe}/>
           ))}
+          </div>
 
         </div>
 
+        <div id="aggregator">
         <Aggregator
         savedRecipes={saved}
         totalCookTime={cookTime}
         />
+        </div>
 
         {/* <div>
           <h2>Recipe Box:</h2>
