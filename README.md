@@ -12,7 +12,9 @@ One of the main usability principles I considered was making the state of the sy
 I used text hierarchy and white space to make the most important information (the recipes, saved recipes section, and filters) distinct and clear to users. Since users today are used to scrolling to see recipes and to allow users to see a large number of recipes at once, I used a grid-style (done with flexbox) display of the recipe cards.
 
 ### Organization of Components
-My application has two components in addition to the main App.js file. The RecipeItem component is what makes the recipe card for the application and is reused for each recipe. It takes in 4 props: a list of items the user has saved (to determine whether an "Save" or "Unsave" button should appear), prop1 (which contains data from the JSON file), and two functions defining what should happen if users save or unsave the recipe.
+My application has two components in addition to the main App.js file. 
+
+The RecipeItem component is what makes the recipe card for the application and is reused for each recipe. It takes in 4 props: a list of items the user has saved (to determine whether a "Save" or "Unsave" button should appear), prop1 (which contains data from the JSON file), and two functions defining what should happen if users save or unsave the recipe.
 
 The Aggregator component is what makes the "Recipe Box" (saved recipes) section of the site, and takes in a list of names of recipes that have been saved and the total cook time for those recipes.
 
